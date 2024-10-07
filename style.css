@@ -1,0 +1,20 @@
+.Application-form{
+    height: 500px;
+    width: 800px;
+    margin-left: 270px;
+    padding-top: 10px;
+    background-color: aqua;
+    text-align: center;
+}
+.inpte{
+margin-top: 10px;
+padding: 3px;
+}
+.radio-btn{
+    margin-top: 10px;
+padding: 3px;
+}
+.Submit{
+    margin-top: 10px;
+    padding: 3px;
+}

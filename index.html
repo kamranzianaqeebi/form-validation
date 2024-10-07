@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .Application-form {
+            margin: auto;
+            padding: 20px;
+            background-color: aqua;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="col-sm col-md">
+    <div class="Application-form">
+        <h2 class="text-center">Application Form</h2>
+        <form id="myForm" onsubmit="return data()">
+            <div class="form-group">
+                <input class="form-control" id="a" type="text" placeholder="Write your name" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="b" type="text" placeholder="Write your Father's name" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="c" type="number" placeholder="Write your Mobile Number" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="d" type="password" placeholder="Write your Password" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="e" type="password" placeholder="Confirm your Password" required>
+            </div>
+            <div class="form-group">
+                <select name="city" id="city-live" class="form-control">
+                    <option value="Lahore">Lahore</option>
+                    <option value="Kasur">Kasur</option>
+                    <option value="Sargodha">Sargodha</option>
+                    <option value="Islamabad">Islamabad</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" id="Checkbox1"> Pakistani</label><br>
+                <label><input type="checkbox" id="Checkbox2"> Punjabi</label><br>
+                <label><input type="checkbox" id="Checkbox3"> Sindhi</label><br>
+                <label><input type="checkbox" id="Checkbox4"> Balochi</label>
+            </div>
+            <div class="form-group">
+                <label><input type="radio" id="r.btn1" value="Muslim" name="btn"> Muslim</label><br>
+                <label><input type="radio" id="r.btn2" value="Non-Muslim" name="btn"> Non-Muslim</label>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        function data() {
+            let a = document.getElementById("a").value;
+            let b = document.getElementById("b").value;
+            let c = document.getElementById("c").value;
+            let d = document.getElementById("d").value;
+            let e = document.getElementById("e").value;
+
+            if (c.length !== 11) {
+                alert("Number should be 11 digits");
+                return false;
+            }
+            if (d.length < 8 || !/[A-Z]/.test(d) || !/[a-z]/.test(d) || !/[0-9]/.test(d) || !/[!@#$%^&*(),.?":{}|<>]/.test(d)) {
+                alert("Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.");
+                return false;
+            }
+            if (d !== e) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            let isMuslimChecked = document.getElementById("r.btn1").checked;
+            let isNonMuslimChecked = document.getElementById("r.btn2").checked;
+            if (!isMuslimChecked && !isNonMuslimChecked) {
+                alert("Please select at least one religion.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
